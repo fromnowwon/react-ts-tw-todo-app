@@ -23,16 +23,24 @@ const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="flex">
 				<input
 					type="text"
 					value={input}
 					onChange={handleChangeInput}
 					placeholder="내용을 입력해주세요"
+					className="rounded-s-md grow border border-gray-400 p-2"
 				/>
-				{errorMessage && <p>{errorMessage}</p>}
-				<button type="submit">추가</button>
+				<button
+					type="submit"
+					className="w-16 rounded-e-md bg-slate-900 text-white hover:bg-slate-800"
+				>
+					추가
+				</button>
 			</form>
+			{errorMessage && (
+				<p className="my-1 text-sm text-red-500">{errorMessage}</p>
+			)}
 		</div>
 	);
 };

@@ -16,15 +16,21 @@ const TodoList = ({ todos, setCompletedTodo, deleteTodo }: TodoListProps) => {
 	});
 
 	return (
-		<div>
-			{todosSorted.map((todo) => (
-				<TodoItem
-					todo={todo}
-					setCompletedTodo={setCompletedTodo}
-					deleteTodo={deleteTodo}
-				/>
-			))}
-		</div>
+		<>
+			<div className="space-y-2 py-4">
+				{todosSorted.map((todo) => (
+					<TodoItem
+						key={todo.id}
+						todo={todo}
+						setCompletedTodo={setCompletedTodo}
+						deleteTodo={deleteTodo}
+					/>
+				))}
+			</div>
+			{todos.length === 0 && (
+				<p className="text-center text-gray-500">아직 할 일 없음...</p>
+			)}
+		</>
 	);
 };
 
