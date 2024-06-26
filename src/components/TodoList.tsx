@@ -1,16 +1,16 @@
 import { Todo } from "../types/todo";
+import TodoItem from "./TodoItem";
 
 interface TodoListProps {
 	todos: Todo[];
+	setCompletedTodo: (id: number, completed: boolean) => void;
 }
 
-const TodoList = ({ todos }: TodoListProps) => {
+const TodoList = ({ todos, setCompletedTodo }: TodoListProps) => {
 	return (
 		<div>
 			{todos.map((todo) => (
-				<div>
-					<h2>{todo.title}</h2>
-				</div>
+				<TodoItem todo={todo} setCompletedTodo={setCompletedTodo} />
 			))}
 		</div>
 	);

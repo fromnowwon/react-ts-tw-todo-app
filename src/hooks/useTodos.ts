@@ -15,9 +15,16 @@ const useTodos = () => {
 		]);
 	};
 
+	const setCompletedTodo = (id: number, completed: boolean) => {
+		setTodos((prevTodos) =>
+			prevTodos.map((todo) => (todo.id === id ? { ...todo, completed } : todo))
+		);
+	};
+
 	return {
 		todos,
 		addTodo,
+		setCompletedTodo,
 	};
 };
 
