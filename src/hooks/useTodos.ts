@@ -21,10 +21,15 @@ const useTodos = () => {
 		);
 	};
 
+	const deleteTodo = (id: number) => {
+		setTodos((prevTodo) => prevTodo.filter((todo) => todo.id !== id));
+	};
+
 	return {
 		todos,
 		addTodo,
 		setCompletedTodo,
+		deleteTodo,
 	};
 };
 

@@ -12,6 +12,7 @@ const TodoResult = ({ todos }: TodoResultProps) => {
 			{todos.length > 0 ? (
 				<>
 					<p>{(completedTodos.length / todos.length) * 100}% 완료</p>
+					<button>완료된 할 일 모두 삭제</button>
 				</>
 			) : (
 				<p>아직 할 일 없음</p>
