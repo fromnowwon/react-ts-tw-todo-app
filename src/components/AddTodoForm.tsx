@@ -18,6 +18,7 @@ const AddTodoForm = ({ addTodo }: AddTodoFormProps) => {
 
 		addTodo(input);
 		setInput("");
+		setErrorMessage("");
 	};
 
 	return (
