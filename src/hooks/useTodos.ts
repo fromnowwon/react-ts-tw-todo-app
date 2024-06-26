@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Todo } from "../types/todo";
 
 const useTodos = () => {
-	const [todos, setTodos] = useState<Todo[]>([]);
+	const [todos, setTodos] = useState<Todo[]>(() => {
+		const savedTodos: Todo[] = JSON.parse(
+			localStorage.getItem("todos") || "[]"
+		);
+		return savedTodos.length > 0 ? savedTodos : [];
+	});
+
+	useEffect(() => {
+		localStorage.setItem("todos", JSON.stringify(todos));
+	}, [todos]);
 
 	const addTodo = (title: string) => {
 		setTodos((prevTodos) => [
 			...prevTodos,
 			{
-				id: prevTodos.length + 1,
+				id: Date.now(),
 				title,
 				completed: false,
 			},
