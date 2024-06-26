@@ -22,7 +22,11 @@ const useTodos = () => {
 	};
 
 	const deleteTodo = (id: number) => {
-		setTodos((prevTodo) => prevTodo.filter((todo) => todo.id !== id));
+		setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+	};
+
+	const deleteAllCompletedTodos = () => {
+		setTodos((prevTodos) => prevTodos.filter((todo) => !todo.completed));
 	};
 
 	return {
@@ -30,6 +34,7 @@ const useTodos = () => {
 		addTodo,
 		setCompletedTodo,
 		deleteTodo,
+		deleteAllCompletedTodos,
 	};
 };
 

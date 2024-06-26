@@ -4,7 +4,13 @@ import TodoResult from "./components/TodoResult";
 import useTodos from "./hooks/useTodos";
 
 function App() {
-	const { todos, addTodo, setCompletedTodo, deleteTodo } = useTodos();
+	const {
+		todos,
+		addTodo,
+		setCompletedTodo,
+		deleteTodo,
+		deleteAllCompletedTodos,
+	} = useTodos();
 
 	return (
 		<main>
@@ -14,7 +20,10 @@ function App() {
 				setCompletedTodo={setCompletedTodo}
 				deleteTodo={deleteTodo}
 			/>
-			<TodoResult todos={todos} />
+			<TodoResult
+				todos={todos}
+				deleteAllCompletedTodos={deleteAllCompletedTodos}
+			/>
 		</main>
 	);
 }
