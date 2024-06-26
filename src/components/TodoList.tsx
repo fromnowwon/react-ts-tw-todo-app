@@ -8,9 +8,16 @@ interface TodoListProps {
 }
 
 const TodoList = ({ todos, setCompletedTodo, deleteTodo }: TodoListProps) => {
+	const todosSorted = todos.sort((a, b) => {
+		if (a.completed === b.completed) {
+			return b.id - a.id; // 내림차순
+		}
+		return a.completed ? 1 : -1; // 완료된 할 일 뒤로 보내기
+	});
+
 	return (
 		<div>
-			{todos.map((todo) => (
+			{todosSorted.map((todo) => (
 				<TodoItem
 					todo={todo}
 					setCompletedTodo={setCompletedTodo}
